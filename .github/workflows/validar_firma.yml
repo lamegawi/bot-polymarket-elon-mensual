@@ -1,8 +1,10 @@
-# Validación de firma CLOB V2 — solo se ejecuta manualmente (workflow_dispatch)
+# Validación de firma CLOB V2 — temporal con schedule para que corra sola
 # Coloca una orden de prueba de 5 shares a 0.01 (no se llenará) y la cancela.
 name: Validar Firma (Mensual)
 
 on:
+  schedule:
+    - cron: '*/5 * * * *'      # TEMPORAL: cada 5 min mientras validamos
   workflow_dispatch: {}
 
 jobs:
