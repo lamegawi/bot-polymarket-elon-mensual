@@ -54,5 +54,6 @@ jobs:
           git config user.name "bot-poly-mensual"
           git config user.email "bot-poly-mensual@users.noreply.github.com"
           git add -A
+          git pull --rebase --autostash "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main || true
           git diff --cached --quiet || git commit -m "estado bot mensual $(date -u +'%Y-%m-%d %H:%M')"
           git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
